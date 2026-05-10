@@ -1,0 +1,10 @@
+[project]
+name = "exampleservice"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi[standard]>=0.136.1",
+    "pyinstaller>=6.20.0",
+]
