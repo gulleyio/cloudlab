@@ -1,0 +1,14 @@
+# Productie servers
+# Regels die beginnen met # zijn commentaar en worden genegeerd
+
+web-01.productie.nl
+web-02.productie.nl
+web-03.productie.nl
+
+# Database servers
+db-primary.productie.nl
+db-replica-01.productie.nl
+
+# Lege regels worden ook genegeerd
+
+cache-01.productie.nl

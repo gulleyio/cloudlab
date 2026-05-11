@@ -1,0 +1,42 @@
+{
+  "omgeving": "staging",
+  "versie": "2.4.1",
+  "bijgewerkt_op": "2024-01-15T10:30:00Z",
+  "services": [
+    {
+      "naam": "api-gateway",
+      "image": "registry.gitlab.com/mijn-project/api-gateway:2.4.1",
+      "replicas": 3,
+      "poort": 8080,
+      "gezond": true
+    },
+    {
+      "naam": "auth-service",
+      "image": "registry.gitlab.com/mijn-project/auth-service:2.4.1",
+      "replicas": 2,
+      "poort": 8081,
+      "gezond": true
+    },
+    {
+      "naam": "user-service",
+      "image": "registry.gitlab.com/mijn-project/user-service:2.4.1",
+      "replicas": 1,
+      "poort": 8082,
+      "gezond": false
+    },
+    {
+      "naam": "notification-service",
+      "image": "registry.gitlab.com/mijn-project/notification-service:2.4.1",
+      "replicas": 1,
+      "poort": 8083,
+      "gezond": true
+    },
+    {
+      "naam": "report-service",
+      "image": "registry.gitlab.com/mijn-project/report-service:2.4.1",
+      "replicas": 4,
+      "poort": 8084,
+      "gezond": true
+    }
+  ]
+}

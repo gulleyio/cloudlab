@@ -1,0 +1,31 @@
+# Applicatie configuratie
+omgeving: productie
+
+database:
+  host: db-primary.intern
+  poort: 5432
+  naam: app_db
+
+services:
+  api:
+    replicas: 3
+    env:
+      DB_HOST: db-primary.intern
+      DB_PORT: "5432"
+      LOG_LEVEL: info
+      MAX_CONNECTIONS: "100"
+
+  worker:
+    replicas: 2
+    env:
+      DB_HOST: db-primary.intern
+      QUEUE_URL: amqp://rabbitmq:5672
+      LOG_LEVEL: warning
+      WORKER_THREADS: "4"
+
+  cache:
+    replicas: 1
+    env:
+      REDIS_HOST: cache-01.intern
+      REDIS_PORT: "6379"
+      TTL_SECONDS: "3600"
