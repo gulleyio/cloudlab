@@ -1,0 +1,26 @@
+# Services om te monitoren
+# Gebruikt door de eindopdracht
+
+project: mijn-devops-project
+omgeving: staging
+
+services:
+  - naam: httpbin-ok
+    url: https://httpbin.org/status/200
+    verwachte_status: 200
+    kritiek: true
+
+  - naam: github-api
+    url: https://api.github.com
+    verwachte_status: 200
+    kritiek: true
+
+  - naam: ipify
+    url: https://api.ipify.org
+    verwachte_status: 200
+    kritiek: false
+
+  - naam: httpbin-kapot
+    url: https://httpbin.org/status/503
+    verwachte_status: 200
+    kritiek: false
