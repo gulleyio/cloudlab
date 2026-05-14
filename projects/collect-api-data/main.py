@@ -17,5 +17,28 @@ def read_file(filepath: str) -> str:
         raise
 
 
+def write_file(filepath: str, content: str) -> None:
+    try:
+        with open(filepath, "w") as file:
+            file.write(content)
+    except FileNotFoundError:
+        print(f"Error: File '{filepath}' not found.")
+        raise
+    except PermissionError:
+        print(f"Error: Permission denied to write '{filepath}'.")
+        raise
+    except OSError as e:
+        print(f"Error: Failed to write '{filepath}': {e}")
+        raise
+
+
+def parse_from_yaml_to_object():
+    pass
+
+
+def generate_report():
+    pass
+
+
 if __name__ == "__main__":
     main()
