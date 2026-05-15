@@ -1,5 +1,5 @@
-def main():
-    print("Hello from collect-api-data!")
+filepath = "./data/servers.txt"
+stripfilepath = "./data/strip_servers.txt"
 
 
 def read_file(filepath: str) -> str:
@@ -14,6 +14,17 @@ def read_file(filepath: str) -> str:
         raise
     except OSError as e:
         print(f"Error: Failed to read '{filepath}': {e}")
+        raise
+
+
+def read_file_strip_empty_lines_and_skip_comments(filepath: str, stripfilepath: str):
+    try:
+        with open(filepath, "r") as file, open(stripfilepath, "w") as strip_file:
+            for line in file:
+                if line.strip():
+                    strip_file.write(line)
+    except FileNotFoundError:
+        print("file not found")
         raise
 
 
@@ -41,4 +52,10 @@ def generate_report():
 
 
 if __name__ == "__main__":
-    main()
+    content = read_file(filepath)
+    print(content)
+
+    stripped_content = read_file_strip_empty_lines_and_skip_comments(
+        filepath, stripfilepath
+    )
+    print(stripped_content)
